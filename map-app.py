@@ -9,7 +9,7 @@ import pyproj
 import folium
 import os.path
 import json
-# import matplotlib.pyplot as plt
+#
 
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
@@ -29,11 +29,11 @@ def load_and_merge_data():
     """
 
     # loading the boundary data
-    boundaries_gdf = gpd.read_file("simd2020_withgeog\\sc_dz_11.zip")
+    boundaries_gdf = gpd.read_file("simd2020_withgeog/sc_dz_11.zip")
     boundaries_gdf.to_crs(pyproj.CRS.from_epsg(4326), inplace=True)
 
     # loading the deprivation data
-    deprivation_df = pd.read_excel("simd2020_withgeog\\simd2020_withinds.xlsx",
+    deprivation_df = pd.read_excel("simd2020_withgeog/simd2020_withinds.xlsx",
                                    sheet_name="Data")
     deprivation_df.rename(columns={'Data_Zone': 'DataZone'}, inplace=True)
 
@@ -126,7 +126,7 @@ month = st.sidebar.slider(label="Select Month", min_value=1,
 year = st.sidebar.slider(label="Select Year", min_value=2018,
                          max_value=2021, step=1, value=2020)
 # getting file name from the slider outputs using f string
-filename = f"bike_data\\{year}{month:02}.csv"
+filename = f"bike_data/{year}{month:02}.csv"
 
 # checking if file exists
 if os.path.isfile(filename):
