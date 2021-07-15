@@ -1,4 +1,3 @@
-# from matplotlib.pyplot import fill
 import streamlit as st
 from streamlit_folium import folium_static
 import pandas as pd
@@ -9,7 +8,9 @@ import pyproj
 import folium
 import os.path
 import json
-#
+
+from PIL import Image
+
 
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
@@ -23,7 +24,7 @@ st.subheader(
 st.markdown("This interactive webpage uses Just Eat bike hire data in Edinburgh. Two types of data sets were used 1) a general one, which shows _all_ stations in Edinburgh, 2) and a collection of monthly datasets from 2018 to 2021, which show the usage of bike hire stations and is used in the interactive map (further down in the page). ")
 
 
-@st.cache(persist=True, allow_output_mutation=True)
+# @st.cache(persist=True, allow_output_mutation=True)
 def load_and_merge_data():
     """
     This function loads the boundary and deprivation data and merges them.
@@ -303,7 +304,6 @@ if os.path.isfile(filename):
     dictdata_df
     st.markdown("A correlation between the number of stations and deprivation level was conducted. Below is a correlation matrix. There is a strong relationship (0.7208) between number of stations and level of deprivation. While correlation does not equal causation, these findings still show that there is a relationship between deprivation and where stations are located in Edinburgh. More affluent areas have a higher number of stations, allowing the residents or visitors to those areas to have better access to green transport. ")
     st.write(dictdata_df.corr(method='pearson', min_periods=1))
-
 
 else:
     # if the file does not exist, display the message that another file should be selected
