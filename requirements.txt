@@ -7,3 +7,4 @@ streamlit==0.82.0
 matplotlib==3.4.2
 Shapely==1.7.1
 Pillow==8.3.1
+xlrd==1.0.0
